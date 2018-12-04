@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="capstone_mwdModelStoreContainer" CdmEntityContainer="capstone_mwdEntities">
+    <EntitySetMapping Name="tbl_accounts">
+      <EntityTypeMapping TypeName="capstone_mwdModel.tbl_accounts">
+        <MappingFragment StoreEntitySet="tbl_accounts">
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+          <ScalarProperty Name="account_email" ColumnName="account_email" />
+          <ScalarProperty Name="account_status" ColumnName="account_status" />
+          <ScalarProperty Name="account_password" ColumnName="account_password" />
+          <ScalarProperty Name="account_type" ColumnName="account_type" />
+          <ScalarProperty Name="account_img" ColumnName="account_img" />
+          <ScalarProperty Name="account_bankName" ColumnName="account_bankName" />
+          <ScalarProperty Name="account_bankNum" ColumnName="account_bankNum" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ads">
+      <EntityTypeMapping TypeName="capstone_mwdModel.tbl_ads">
+        <MappingFragment StoreEntitySet="tbl_ads">
+          <ScalarProperty Name="ad_id" ColumnName="ad_id" />
+          <ScalarProperty Name="ad_name" ColumnName="ad_name" />
+          <ScalarProperty Name="ad_StartDate" ColumnName="ad_StartDate" />
+          <ScalarProperty Name="ad_EndDate" ColumnName="ad_EndDate" />
+          <ScalarProperty Name="ad_page" ColumnName="ad_page" />
+          <ScalarProperty Name="ad_image" ColumnName="ad_image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_cart">
+      <EntityTypeMapping TypeName="capstone_mwdModel.tbl_cart">
+        <MappingFragment StoreEntitySet="tbl_cart">
+          <ScalarProperty Name="cart_id" ColumnName="cart_id" />
+          <ScalarProperty Name="trans_id" ColumnName="trans_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="cart_quantity" ColumnName="cart_quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_companies">
+      <EntityTypeMapping TypeName="capstone_mwdModel.tbl_companies">
+        <MappingFragment StoreEntitySet="tbl_companies">
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="company_name" ColumnName="company_name" />
+          <ScalarProperty Name="company_address" ColumnName="company_address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_discounts">
+      <EntityTypeMapping TypeName="capstone_mwdModel.tbl_discounts">
+        <MappingFragment StoreEntitySet="tbl_discounts">
+          <ScalarProperty Name="discount_id" ColumnName="discount_id" />
+          <ScalarProperty Name="discount_code" ColumnName="discount_code" />
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+          <ScalarProperty Name="discount_amount" ColumnName="discount_amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_inquiries">
+      <EntityTypeMapping TypeName="capstone_mwdModel.tbl_inquiries">
+        <MappingFragment StoreEntitySet="tbl_inquiries">
+          <ScalarProperty Name="inq_id" ColumnName="inq_id" />
+          <ScalarProperty Name="inq_content" ColumnName="inq_content" />
+          <ScalarProperty Name="inq_date" ColumnName="inq_date" />
+          <ScalarProperty Name="inq_from" ColumnName="inq_from" />
+          <ScalarProperty Name="inq_to" ColumnName="inq_to" />
+          <ScalarProperty Name="thread_id" ColumnName="thread_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_payment">
+      <EntityTypeMapping TypeName="capstone_mwdModel.tbl_payment">
+        <MappingFragment StoreEntitySet="tbl_payment">
+          <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+          <ScalarProperty Name="payment_date" ColumnName="payment_date" />
+          <ScalarProperty Name="trans_id" ColumnName="trans_id" />
+          <ScalarProperty Name="payment_type" ColumnName="payment_type" />
+          <ScalarProperty Name="payment_status" ColumnName="payment_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_personalInformations">
+      <EntityTypeMapping TypeName="capstone_mwdModel.tbl_personalInformations">
+        <MappingFragment StoreEntitySet="tbl_personalInformations">
+          <ScalarProperty Name="personal_id" ColumnName="personal_id" />
+          <ScalarProperty Name="personal_firstName" ColumnName="personal_firstName" />
+          <ScalarProperty Name="personal_lastName" ColumnName="personal_lastName" />
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_products">
+      <EntityTypeMapping TypeName="capstone_mwdModel.tbl_products">
+        <MappingFragment StoreEntitySet="tbl_products">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="product_desc" ColumnName="product_desc" />
+          <ScalarProperty Name="product_price" ColumnName="product_price" />
+          <ScalarProperty Name="product_owner" ColumnName="product_owner" />
+          <ScalarProperty Name="product_quantity" ColumnName="product_quantity" />
+          <ScalarProperty Name="prod_img" ColumnName="prod_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_requirements">
+      <EntityTypeMapping TypeName="capstone_mwdModel.tbl_requirements">
+        <MappingFragment StoreEntitySet="tbl_requirements">
+          <ScalarProperty Name="requirement_id" ColumnName="requirement_id" />
+          <ScalarProperty Name="requirement_name" ColumnName="requirement_name" />
+          <ScalarProperty Name="requirement_dir" ColumnName="requirement_dir" />
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_threads">
+      <EntityTypeMapping TypeName="capstone_mwdModel.tbl_threads">
+        <MappingFragment StoreEntitySet="tbl_threads">
+          <ScalarProperty Name="thread_id" ColumnName="thread_id" />
+          <ScalarProperty Name="thread_title" ColumnName="thread_title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_transactions">
+      <EntityTypeMapping TypeName="capstone_mwdModel.tbl_transactions">
+        <MappingFragment StoreEntitySet="tbl_transactions">
+          <ScalarProperty Name="trans_id" ColumnName="trans_id" />
+          <ScalarProperty Name="trans_date" ColumnName="trans_date" />
+          <ScalarProperty Name="trans_product" ColumnName="trans_product" />
+          <ScalarProperty Name="trans_buyer" ColumnName="trans_buyer" />
+          <ScalarProperty Name="trans_quantity" ColumnName="trans_quantity" />
+          <ScalarProperty Name="trans_discount" ColumnName="trans_discount" />
+          <ScalarProperty Name="trans_status" ColumnName="trans_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

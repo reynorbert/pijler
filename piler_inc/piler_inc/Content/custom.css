@@ -1,0 +1,31 @@
+﻿.product_card {
+    min-height: 180px;
+    max-height: 180px;
+}
+
+.design_size{
+    min-height:60px;
+}
+
+.design_name{
+    text-align:center;
+    font-size:x-small!important;
+}
+
+.design_image {
+    width:70px;
+    height:80px; 
+    /*border-radius:50%*/
+}
+
+.group_pic {
+    height: 432px;
+}
+
+footer {
+    text-align:center;
+}
+
+.about_description {
+    text-align:justify;
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="753d5383817a4e1385bdd92ea9c66927" Name="Diagram1">
+        <EntityTypeShape EntityType="capstone_mwdModel.tbl_accounts" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="capstone_mwdModel.tbl_ads" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="capstone_mwdModel.tbl_cart" Width="1.5" PointX="7.5" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="capstone_mwdModel.tbl_companies" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="capstone_mwdModel.tbl_discounts" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="capstone_mwdModel.tbl_inquiries" Width="1.5" PointX="8.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="capstone_mwdModel.tbl_payment" Width="1.5" PointX="12.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="capstone_mwdModel.tbl_personalInformations" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="capstone_mwdModel.tbl_products" Width="1.5" PointX="5.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="capstone_mwdModel.tbl_requirements" Width="1.5" PointX="5.25" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="capstone_mwdModel.tbl_threads" Width="1.5" PointX="6" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="capstone_mwdModel.tbl_transactions" Width="1.5" PointX="10.5" PointY="11.125" IsExpanded="true" />
+        <AssociationConnector Association="capstone_mwdModel.FK__tbl_accou__compa__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="capstone_mwdModel.FK__tbl_disco__accou__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="capstone_mwdModel.FK__tbl_inqui__inq_f__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="capstone_mwdModel.FK__tbl_inqui__inq_t__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="capstone_mwdModel.FK__tbl_perso__accou__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="capstone_mwdModel.FK__tbl_produ__produ__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="capstone_mwdModel.FK__tbl_requi__accou__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="capstone_mwdModel.FK__tbl_trans__trans__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="capstone_mwdModel.FK__tbl_cart__produc__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="capstone_mwdModel.FK__tbl_cart__trans___403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="capstone_mwdModel.FK__tbl_inqui__threa__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="capstone_mwdModel.FK__tbl_payme__trans__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="capstone_mwdModel.FK__tbl_trans__trans__37A5467C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

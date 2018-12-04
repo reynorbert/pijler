@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="capstone_mwdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_accounts">
+    <Key>
+      <PropertyRef Name="account_id" />
+    </Key>
+    <Property Name="account_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="account_email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="account_status" Type="Int32" />
+    <Property Name="account_password" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="account_type" Type="Int32" />
+    <Property Name="account_img" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="account_bankName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="account_bankNum" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="company_id" Type="Int32" />
+    <NavigationProperty Name="tbl_companies" Relationship="Self.FK__tbl_accou__compa__25869641" FromRole="tbl_accounts" ToRole="tbl_companies" />
+    <NavigationProperty Name="tbl_discounts" Relationship="Self.FK__tbl_disco__accou__5441852A" FromRole="tbl_accounts" ToRole="tbl_discounts" />
+    <NavigationProperty Name="tbl_inquiries" Relationship="Self.FK__tbl_inqui__inq_f__32E0915F" FromRole="tbl_accounts" ToRole="tbl_inquiries" />
+    <NavigationProperty Name="tbl_inquiries1" Relationship="Self.FK__tbl_inqui__inq_t__33D4B598" FromRole="tbl_accounts" ToRole="tbl_inquiries" />
+    <NavigationProperty Name="tbl_personalInformations" Relationship="Self.FK__tbl_perso__accou__286302EC" FromRole="tbl_accounts" ToRole="tbl_personalInformations" />
+    <NavigationProperty Name="tbl_products" Relationship="Self.FK__tbl_produ__produ__2E1BDC42" FromRole="tbl_accounts" ToRole="tbl_products" />
+    <NavigationProperty Name="tbl_requirements" Relationship="Self.FK__tbl_requi__accou__2B3F6F97" FromRole="tbl_accounts" ToRole="tbl_requirements" />
+    <NavigationProperty Name="tbl_transactions" Relationship="Self.FK__tbl_trans__trans__38996AB5" FromRole="tbl_accounts" ToRole="tbl_transactions" />
+  </EntityType>
+  <EntityType Name="tbl_ads">
+    <Key>
+      <PropertyRef Name="ad_id" />
+    </Key>
+    <Property Name="ad_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ad_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ad_StartDate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ad_EndDate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ad_page" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ad_image" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_cart">
+    <Key>
+      <PropertyRef Name="cart_id" />
+    </Key>
+    <Property Name="cart_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="trans_id" Type="Int32" />
+    <Property Name="product_id" Type="Int32" />
+    <Property Name="cart_quantity" Type="Int32" />
+    <NavigationProperty Name="tbl_products" Relationship="Self.FK__tbl_cart__produc__412EB0B6" FromRole="tbl_cart" ToRole="tbl_products" />
+    <NavigationProperty Name="tbl_transactions" Relationship="Self.FK__tbl_cart__trans___403A8C7D" FromRole="tbl_cart" ToRole="tbl_transactions" />
+  </EntityType>
+  <EntityType Name="tbl_companies">
+    <Key>
+      <PropertyRef Name="company_id" />
+    </Key>
+    <Property Name="company_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="company_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="company_address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_accounts" Relationship="Self.FK__tbl_accou__compa__25869641" FromRole="tbl_companies" ToRole="tbl_accounts" />
+  </EntityType>
+  <EntityType Name="tbl_discounts">
+    <Key>
+      <PropertyRef Name="discount_id" />
+    </Key>
+    <Property Name="discount_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="discount_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="account_id" Type="Int32" />
+    <Property Name="discount_amount" Type="Double" />
+    <NavigationProperty Name="tbl_accounts" Relationship="Self.FK__tbl_disco__accou__5441852A" FromRole="tbl_discounts" ToRole="tbl_accounts" />
+  </EntityType>
+  <EntityType Name="tbl_inquiries">
+    <Key>
+      <PropertyRef Name="inq_id" />
+    </Key>
+    <Property Name="inq_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="inq_content" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="inq_date" Type="DateTime" Precision="3" />
+    <Property Name="inq_from" Type="Int32" />
+    <Property Name="inq_to" Type="Int32" />
+    <Property Name="thread_id" Type="Int32" />
+    <NavigationProperty Name="tbl_accounts" Relationship="Self.FK__tbl_inqui__inq_f__32E0915F" FromRole="tbl_inquiries" ToRole="tbl_accounts" />
+    <NavigationProperty Name="tbl_accounts1" Relationship="Self.FK__tbl_inqui__inq_t__33D4B598" FromRole="tbl_inquiries" ToRole="tbl_accounts" />
+    <NavigationProperty Name="tbl_threads" Relationship="Self.FK__tbl_inqui__threa__34C8D9D1" FromRole="tbl_inquiries" ToRole="tbl_threads" />
+  </EntityType>
+  <EntityType Name="tbl_payment">
+    <Key>
+      <PropertyRef Name="payment_id" />
+    </Key>
+    <Property Name="payment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="payment_date" Type="DateTime" Precision="3" />
+    <Property Name="trans_id" Type="Int32" />
+    <Property Name="payment_type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="payment_status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_transactions" Relationship="Self.FK__tbl_payme__trans__3B75D760" FromRole="tbl_payment" ToRole="tbl_transactions" />
+  </EntityType>
+  <EntityType Name="tbl_personalInformations">
+    <Key>
+      <PropertyRef Name="personal_id" />
+    </Key>
+    <Property Name="personal_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="personal_firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="personal_lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="account_id" Type="Int32" />
+    <NavigationProperty Name="tbl_accounts" Relationship="Self.FK__tbl_perso__accou__286302EC" FromRole="tbl_personalInformations" ToRole="tbl_accounts" />
+  </EntityType>
+  <EntityType Name="tbl_products">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="product_desc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="product_price" Type="Double" />
+    <Property Name="product_owner" Type="Int32" />
+    <Property Name="product_quantity" Type="Int32" />
+    <Property Name="prod_img" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_accounts" Relationship="Self.FK__tbl_produ__produ__2E1BDC42" FromRole="tbl_products" ToRole="tbl_accounts" />
+    <NavigationProperty Name="tbl_cart" Relationship="Self.FK__tbl_cart__produc__412EB0B6" FromRole="tbl_products" ToRole="tbl_cart" />
+    <NavigationProperty Name="tbl_transactions" Relationship="Self.FK__tbl_trans__trans__37A5467C" FromRole="tbl_products" ToRole="tbl_transactions" />
+  </EntityType>
+  <EntityType Name="tbl_requirements">
+    <Key>
+      <PropertyRef Name="requirement_id" />
+    </Key>
+    <Property Name="requirement_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="requirement_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="requirement_dir" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="account_id" Type="Int32" />
+    <NavigationProperty Name="tbl_accounts" Relationship="Self.FK__tbl_requi__accou__2B3F6F97" FromRole="tbl_requirements" ToRole="tbl_accounts" />
+  </EntityType>
+  <EntityType Name="tbl_threads">
+    <Key>
+      <PropertyRef Name="thread_id" />
+    </Key>
+    <Property Name="thread_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="thread_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_inquiries" Relationship="Self.FK__tbl_inqui__threa__34C8D9D1" FromRole="tbl_threads" ToRole="tbl_inquiries" />
+  </EntityType>
+  <EntityType Name="tbl_transactions">
+    <Key>
+      <PropertyRef Name="trans_id" />
+    </Key>
+    <Property Name="trans_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="trans_date" Type="DateTime" Precision="3" />
+    <Property Name="trans_product" Type="Int32" />
+    <Property Name="trans_buyer" Type="Int32" />
+    <Property Name="trans_quantity" Type="Int32" />
+    <Property Name="trans_discount" Type="Double" />
+    <Property Name="trans_status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_accounts" Relationship="Self.FK__tbl_trans__trans__38996AB5" FromRole="tbl_transactions" ToRole="tbl_accounts" />
+    <NavigationProperty Name="tbl_cart" Relationship="Self.FK__tbl_cart__trans___403A8C7D" FromRole="tbl_transactions" ToRole="tbl_cart" />
+    <NavigationProperty Name="tbl_payment" Relationship="Self.FK__tbl_payme__trans__3B75D760" FromRole="tbl_transactions" ToRole="tbl_payment" />
+    <NavigationProperty Name="tbl_products" Relationship="Self.FK__tbl_trans__trans__37A5467C" FromRole="tbl_transactions" ToRole="tbl_products" />
+  </EntityType>
+  <Association Name="FK__tbl_accou__compa__25869641">
+    <End Role="tbl_companies" Type="Self.tbl_companies" Multiplicity="0..1" />
+    <End Role="tbl_accounts" Type="Self.tbl_accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_companies">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="tbl_accounts">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_disco__accou__5441852A">
+    <End Role="tbl_accounts" Type="Self.tbl_accounts" Multiplicity="0..1" />
+    <End Role="tbl_discounts" Type="Self.tbl_discounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_accounts">
+        <PropertyRef Name="account_id" />
+      </Principal>
+      <Dependent Role="tbl_discounts">
+        <PropertyRef Name="account_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_inqui__inq_f__32E0915F">
+    <End Role="tbl_accounts" Type="Self.tbl_accounts" Multiplicity="0..1" />
+    <End Role="tbl_inquiries" Type="Self.tbl_inquiries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_accounts">
+        <PropertyRef Name="account_id" />
+      </Principal>
+      <Dependent Role="tbl_inquiries">
+        <PropertyRef Name="inq_from" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_inqui__inq_t__33D4B598">
+    <End Role="tbl_accounts" Type="Self.tbl_accounts" Multiplicity="0..1" />
+    <End Role="tbl_inquiries" Type="Self.tbl_inquiries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_accounts">
+        <PropertyRef Name="account_id" />
+      </Principal>
+      <Dependent Role="tbl_inquiries">
+        <PropertyRef Name="inq_to" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_perso__accou__286302EC">
+    <End Role="tbl_accounts" Type="Self.tbl_accounts" Multiplicity="0..1" />
+    <End Role="tbl_personalInformations" Type="Self.tbl_personalInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_accounts">
+        <PropertyRef Name="account_id" />
+      </Principal>
+      <Dependent Role="tbl_personalInformations">
+        <PropertyRef Name="account_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_produ__produ__2E1BDC42">
+    <End Role="tbl_accounts" Type="Self.tbl_accounts" Multiplicity="0..1" />
+    <End Role="tbl_products" Type="Self.tbl_products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_accounts">
+        <PropertyRef Name="account_id" />
+      </Principal>
+      <Dependent Role="tbl_products">
+        <PropertyRef Name="product_owner" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_requi__accou__2B3F6F97">
+    <End Role="tbl_accounts" Type="Self.tbl_accounts" Multiplicity="0..1" />
+    <End Role="tbl_requirements" Type="Self.tbl_requirements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_accounts">
+        <PropertyRef Name="account_id" />
+      </Principal>
+      <Dependent Role="tbl_requirements">
+        <PropertyRef Name="account_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_trans__trans__38996AB5">
+    <End Role="tbl_accounts" Type="Self.tbl_accounts" Multiplicity="0..1" />
+    <End Role="tbl_transactions" Type="Self.tbl_transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_accounts">
+        <PropertyRef Name="account_id" />
+      </Principal>
+      <Dependent Role="tbl_transactions">
+        <PropertyRef Name="trans_buyer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_cart__produc__412EB0B6">
+    <End Role="tbl_products" Type="Self.tbl_products" Multiplicity="0..1" />
+    <End Role="tbl_cart" Type="Self.tbl_cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="tbl_cart">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_cart__trans___403A8C7D">
+    <End Role="tbl_transactions" Type="Self.tbl_transactions" Multiplicity="0..1" />
+    <End Role="tbl_cart" Type="Self.tbl_cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_transactions">
+        <PropertyRef Name="trans_id" />
+      </Principal>
+      <Dependent Role="tbl_cart">
+        <PropertyRef Name="trans_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_inqui__threa__34C8D9D1">
+    <End Role="tbl_threads" Type="Self.tbl_threads" Multiplicity="0..1" />
+    <End Role="tbl_inquiries" Type="Self.tbl_inquiries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_threads">
+        <PropertyRef Name="thread_id" />
+      </Principal>
+      <Dependent Role="tbl_inquiries">
+        <PropertyRef Name="thread_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_payme__trans__3B75D760">
+    <End Role="tbl_transactions" Type="Self.tbl_transactions" Multiplicity="0..1" />
+    <End Role="tbl_payment" Type="Self.tbl_payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_transactions">
+        <PropertyRef Name="trans_id" />
+      </Principal>
+      <Dependent Role="tbl_payment">
+        <PropertyRef Name="trans_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_trans__trans__37A5467C">
+    <End Role="tbl_products" Type="Self.tbl_products" Multiplicity="0..1" />
+    <End Role="tbl_transactions" Type="Self.tbl_transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="tbl_transactions">
+        <PropertyRef Name="trans_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="capstone_mwdEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_accounts" EntityType="Self.tbl_accounts" />
+    <EntitySet Name="tbl_ads" EntityType="Self.tbl_ads" />
+    <EntitySet Name="tbl_cart" EntityType="Self.tbl_cart" />
+    <EntitySet Name="tbl_companies" EntityType="Self.tbl_companies" />
+    <EntitySet Name="tbl_discounts" EntityType="Self.tbl_discounts" />
+    <EntitySet Name="tbl_inquiries" EntityType="Self.tbl_inquiries" />
+    <EntitySet Name="tbl_payment" EntityType="Self.tbl_payment" />
+    <EntitySet Name="tbl_personalInformations" EntityType="Self.tbl_personalInformations" />
+    <EntitySet Name="tbl_products" EntityType="Self.tbl_products" />
+    <EntitySet Name="tbl_requirements" EntityType="Self.tbl_requirements" />
+    <EntitySet Name="tbl_threads" EntityType="Self.tbl_threads" />
+    <EntitySet Name="tbl_transactions" EntityType="Self.tbl_transactions" />
+    <AssociationSet Name="FK__tbl_accou__compa__25869641" Association="Self.FK__tbl_accou__compa__25869641">
+      <End Role="tbl_companies" EntitySet="tbl_companies" />
+      <End Role="tbl_accounts" EntitySet="tbl_accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_disco__accou__5441852A" Association="Self.FK__tbl_disco__accou__5441852A">
+      <End Role="tbl_accounts" EntitySet="tbl_accounts" />
+      <End Role="tbl_discounts" EntitySet="tbl_discounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_inqui__inq_f__32E0915F" Association="Self.FK__tbl_inqui__inq_f__32E0915F">
+      <End Role="tbl_accounts" EntitySet="tbl_accounts" />
+      <End Role="tbl_inquiries" EntitySet="tbl_inquiries" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_inqui__inq_t__33D4B598" Association="Self.FK__tbl_inqui__inq_t__33D4B598">
+      <End Role="tbl_accounts" EntitySet="tbl_accounts" />
+      <End Role="tbl_inquiries" EntitySet="tbl_inquiries" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_perso__accou__286302EC" Association="Self.FK__tbl_perso__accou__286302EC">
+      <End Role="tbl_accounts" EntitySet="tbl_accounts" />
+      <End Role="tbl_personalInformations" EntitySet="tbl_personalInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_produ__produ__2E1BDC42" Association="Self.FK__tbl_produ__produ__2E1BDC42">
+      <End Role="tbl_accounts" EntitySet="tbl_accounts" />
+      <End Role="tbl_products" EntitySet="tbl_products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_requi__accou__2B3F6F97" Association="Self.FK__tbl_requi__accou__2B3F6F97">
+      <End Role="tbl_accounts" EntitySet="tbl_accounts" />
+      <End Role="tbl_requirements" EntitySet="tbl_requirements" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_trans__trans__38996AB5" Association="Self.FK__tbl_trans__trans__38996AB5">
+      <End Role="tbl_accounts" EntitySet="tbl_accounts" />
+      <End Role="tbl_transactions" EntitySet="tbl_transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_cart__produc__412EB0B6" Association="Self.FK__tbl_cart__produc__412EB0B6">
+      <End Role="tbl_products" EntitySet="tbl_products" />
+      <End Role="tbl_cart" EntitySet="tbl_cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_cart__trans___403A8C7D" Association="Self.FK__tbl_cart__trans___403A8C7D">
+      <End Role="tbl_transactions" EntitySet="tbl_transactions" />
+      <End Role="tbl_cart" EntitySet="tbl_cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_inqui__threa__34C8D9D1" Association="Self.FK__tbl_inqui__threa__34C8D9D1">
+      <End Role="tbl_threads" EntitySet="tbl_threads" />
+      <End Role="tbl_inquiries" EntitySet="tbl_inquiries" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_payme__trans__3B75D760" Association="Self.FK__tbl_payme__trans__3B75D760">
+      <End Role="tbl_transactions" EntitySet="tbl_transactions" />
+      <End Role="tbl_payment" EntitySet="tbl_payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_trans__trans__37A5467C" Association="Self.FK__tbl_trans__trans__37A5467C">
+      <End Role="tbl_products" EntitySet="tbl_products" />
+      <End Role="tbl_transactions" EntitySet="tbl_transactions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
